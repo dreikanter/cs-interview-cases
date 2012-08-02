@@ -54,6 +54,7 @@
     <Compile Include="Cases\ExceptionsCase3.cs" />
     <Compile Include="Cases\FizzBuzzCase.cs" />
     <Compile Include="Cases\GcCase1.cs" />
+    <Compile Include="Cases\ReverseListCase.cs" />
     <Compile Include="Cases\SingletonCase.cs" />
     <Compile Include="Cases\WhatTimeIsItCase.cs" />
     <Compile Include="Program.cs" />
