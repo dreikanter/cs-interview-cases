@@ -55,6 +55,7 @@
     <Compile Include="Cases\FizzBuzzCase.cs" />
     <Compile Include="Cases\GcCase1.cs" />
     <Compile Include="Cases\SingletonCase.cs" />
+    <Compile Include="Cases\WhatTimeIsItCase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cases\TryCase1.cs" />
