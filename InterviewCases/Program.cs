@@ -6,7 +6,7 @@ namespace InterviewCases
     {
         static void Main(string[] args)
         {
-            new GcCase1();
+            new FizzBuzzCase();
         }
     }
 }
