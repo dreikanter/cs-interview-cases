@@ -17,27 +17,24 @@ namespace InterviewCases.Cases
 
         public const double SecondStep = MinuteStep / 60;
 
-        private static double NormalizeAngle(double angle)
-        {
-            var normAngle = angle % 360;
-            return (normAngle < 0) ? (angle + 360) % 360 : normAngle;
-        }
-
-        private static int GetModulo(double angle, double divider)
+        private static int DivAngle(double angle, double divider)
         {
             // Range checking is not important because the function is private
             // if (divider < 0) throw new ArgumentOutOfRangeException("divider");
 
-            var result = NormalizeAngle(angle) / divider;
+            var result = angle / divider;
             if (result < 0) result += 360 / divider;
             return Convert.ToInt32(Math.Floor(result));
         }
 
         public TimeSpan GetTime(double angle)
         {
-            var hour = GetModulo(angle, HourStep);
-            var minute = GetModulo(angle, MinuteStep) % 60;
-            var second = GetModulo(angle, SecondStep) % 60;
+            var normAngle = angle % 360;
+            normAngle = (normAngle < 0) ? (normAngle + 360) % 360 : normAngle;
+            
+            var hour = DivAngle(normAngle, HourStep);
+            var minute = DivAngle(normAngle, MinuteStep) % 60;
+            var second = DivAngle(normAngle, SecondStep) % 60;
 
             return new TimeSpan(0, hour, minute, second);
         }

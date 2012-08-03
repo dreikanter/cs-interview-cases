@@ -75,7 +75,7 @@ namespace InterviewCases.Cases
 //              // get_last() traverse throught he list and return last and one before
 //              // last items (or null if there are only one item in the list)
 //
-//              last, prev = list.get_last()
+//              last, prev = root.get_last()
 //              new_root = last
 //             
 //              while prev != null:
