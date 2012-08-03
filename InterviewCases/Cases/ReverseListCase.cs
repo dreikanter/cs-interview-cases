@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterviewCases.Cases
 {
@@ -49,28 +50,64 @@ namespace InterviewCases.Cases
             return root;
         }
 
+        // Neither cpu nor resource hungry
         public static Node Reverse(Node root)
         {
             if (root == null || root.Child == null) return root;
             
-            var cur = root.Child;
-            var prev = root;
+            var cur = root;
+            Node prev = null;
 
             // n 1-2 2-3 3-4 4-n
             while (cur != null)
             {
-                // 2 -> 1 keep cur.child; old cur.child -> prev; prev = cur; cur = keepd
-                // 3 -> 2
-                // 4 -> 3
                 var next = cur.Child;
                 cur.Child = prev;
                 prev = cur;
                 cur = next;
-
             }
-
-            return cur;
+            
+            return prev;
         }
+
+//        public static Node CpuHungryReverse(Node root)
+//        {
+//              // get_last() traverse throught he list and return last and one before
+//              // last items (or null if there are only one item in the list)
+//
+//              last, prev = list.get_last()
+//              new_root = last
+//             
+//              while prev != null:
+//                  prev.Child = null
+//                  last.Child = prev
+//                  last, prev = list.get_two_last_items()
+//             
+//              return new_root
+//        }
+
+//        public static Node MemoryHungryReverse(Node root)
+//        {
+//	        var items = new Stack<Node>();
+//	        var cur = root;
+//
+//	        while (cur != null)
+//	        {
+//		        items.push(cur);
+//		        cur = cur.Child;
+//	        }
+//
+//	        var newRoot = stack.Peek();
+//	        cur = newRoot;
+//        	
+//	        while (stack.Count > 0)
+//	        {
+//		        cur.Child = stack.Pop();
+//		        cur = cur.Child;
+//	        }
+//
+//	        return newRoot;
+//        }
 
         private static void PrintNodes(Node root)
         {
